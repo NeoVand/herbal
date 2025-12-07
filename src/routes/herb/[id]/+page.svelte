@@ -67,13 +67,17 @@
 					/>
 					<div class="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-card)] via-transparent to-transparent"></div>
 					
-					<!-- Title Overlay -->
-					<div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-						<div class="flex flex-wrap gap-2 mb-3 {$currentLang === 'fa' ? 'justify-end' : 'justify-start'}">
+					<!-- Tags at Top -->
+					<div class="absolute top-0 left-0 right-0 p-4 sm:p-6">
+						<div class="flex flex-wrap gap-2 {$currentLang === 'fa' ? 'justify-end' : 'justify-start'}">
 							{#each herbDiseases.slice(0, 4) as disease (disease)}
 								<span class="badge">{disease}</span>
 							{/each}
 						</div>
+					</div>
+					
+					<!-- Title Overlay at Bottom -->
+					<div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
 						<h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-text-primary)] mb-1 {$currentLang === 'fa' ? 'text-right' : 'text-left'}">
 							{herbName}
 						</h1>
@@ -110,10 +114,10 @@
 	</section>
 
 	<!-- Tab Navigation -->
-	<section class="relative z-10 px-4 sm:px-6 lg:px-8 pb-4">
+	<section class="relative z-10 px-4 sm:px-6 lg:px-8 pb-4" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
 		<div class="max-w-5xl mx-auto">
 			<!-- Mobile: 2x2 Grid -->
-			<div class="grid grid-cols-2 gap-2 sm:hidden" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
+			<div class="grid grid-cols-2 gap-2 sm:hidden">
 				<button
 					onclick={() => activeTab = 'overview'}
 					class="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl text-xs font-medium transition-all cursor-pointer {activeTab === 'overview' 
@@ -161,7 +165,7 @@
 			</div>
 			
 			<!-- Desktop: Horizontal tabs with icons -->
-			<div class="hidden sm:flex {$currentLang === 'fa' ? 'flex-row-reverse' : ''} gap-2">
+			<div class="hidden sm:flex gap-2">
 				<button
 					onclick={() => activeTab = 'overview'}
 					class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all cursor-pointer {activeTab === 'overview' 
@@ -289,14 +293,14 @@
 			{:else if activeTab === 'safety'}
 				<div class="space-y-6 animate-fade-in">
 					<!-- Safety Note -->
-					<div class="glass rounded-2xl p-6 sm:p-8">
-						<div class="flex items-start gap-4 {$currentLang === 'fa' ? 'flex-row-reverse' : ''}">
+					<div class="glass rounded-2xl p-6 sm:p-8" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
+						<div class="flex items-start gap-4">
 							<div class="w-10 h-10 rounded-full bg-[var(--color-earth-amber)]/20 flex items-center justify-center shrink-0">
 								<svg class="w-5 h-5 text-[var(--color-earth-amber)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
 								</svg>
 							</div>
-							<div class="{$currentLang === 'fa' ? 'text-right' : 'text-left'}">
+							<div class="flex-1">
 								<h3 class="font-serif text-xl font-semibold text-[var(--color-text-primary)] mb-2">{$t.importantSafetyNote}</h3>
 								<p class="text-[var(--color-text-secondary)]">{herbSafetyNote}</p>
 							</div>
@@ -304,44 +308,44 @@
 					</div>
 
 					<!-- Contraindications -->
-					<div class="glass rounded-2xl p-6 sm:p-8">
-						<h2 class="font-serif text-2xl font-semibold text-[var(--color-text-primary)] mb-4 {$currentLang === 'fa' ? 'text-right' : 'text-left'}">
+					<div class="glass rounded-2xl p-6 sm:p-8" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
+						<h2 class="font-serif text-2xl font-semibold text-[var(--color-text-primary)] mb-4">
 							{$t.contraindications}
 						</h2>
-						<p class="text-[var(--color-text-muted)] mb-4 {$currentLang === 'fa' ? 'text-right' : 'text-left'}">{$t.doNotUseIf}</p>
+						<p class="text-[var(--color-text-muted)] mb-4">{$t.doNotUseIf}</p>
 						<ul class="space-y-2">
 							{#each herbDetailedInfo.contraindications as contra (contra)}
-								<li class="flex items-start gap-3 {$currentLang === 'fa' ? 'flex-row-reverse' : ''}">
+								<li class="flex items-start gap-3">
 									<svg class="w-5 h-5 text-[var(--color-earth-copper)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
 									</svg>
-									<span class="text-[var(--color-text-secondary)] {$currentLang === 'fa' ? 'text-right' : 'text-left'}">{contra}</span>
+									<span class="text-[var(--color-text-secondary)] flex-1">{contra}</span>
 								</li>
 							{/each}
 						</ul>
 					</div>
 
 					<!-- Interactions -->
-					<div class="glass rounded-2xl p-6 sm:p-8">
-						<h2 class="font-serif text-2xl font-semibold text-[var(--color-text-primary)] mb-4 {$currentLang === 'fa' ? 'text-right' : 'text-left'}">
+					<div class="glass rounded-2xl p-6 sm:p-8" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
+						<h2 class="font-serif text-2xl font-semibold text-[var(--color-text-primary)] mb-4">
 							{$t.drugInteractions}
 						</h2>
-						<p class="text-[var(--color-text-muted)] mb-4 {$currentLang === 'fa' ? 'text-right' : 'text-left'}">{$t.mayInteractWith}</p>
+						<p class="text-[var(--color-text-muted)] mb-4">{$t.mayInteractWith}</p>
 						<ul class="space-y-2">
 							{#each herbDetailedInfo.interactions as interaction (interaction)}
-								<li class="flex items-start gap-3 {$currentLang === 'fa' ? 'flex-row-reverse' : ''}">
+								<li class="flex items-start gap-3">
 									<svg class="w-5 h-5 text-[var(--color-earth-amber)] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
 									</svg>
-									<span class="text-[var(--color-text-secondary)] {$currentLang === 'fa' ? 'text-right' : 'text-left'}">{interaction}</span>
+									<span class="text-[var(--color-text-secondary)] flex-1">{interaction}</span>
 								</li>
 							{/each}
 						</ul>
 					</div>
 
 					<!-- Disclaimer -->
-					<div class="glass rounded-2xl p-6 sm:p-8 bg-[var(--color-bg-tertiary)]/50">
-						<p class="text-sm text-[var(--color-text-muted)] {$currentLang === 'fa' ? 'text-right' : 'text-left'}">
+					<div class="glass rounded-2xl p-6 sm:p-8 bg-[var(--color-bg-tertiary)]/50" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
+						<p class="text-sm text-[var(--color-text-muted)]">
 							<strong class="text-[var(--color-text-primary)]">{$t.medicalDisclaimer}</strong> {$t.medicalDisclaimerText}
 						</p>
 					</div>
