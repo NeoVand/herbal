@@ -180,7 +180,7 @@ export const translations: Record<Language, Translations> = {
 		
 		// Hero
 		heroTitle1: 'درمان طبیعی،',
-		heroTitle2: 'پشتیبانی‌شده توسط علم',
+		heroTitle2: 'با پشتیبانی علمی',
 		heroDescription: 'گیاهان دارویی مبتنی بر شواهد را با آزمایش‌های بالینی، دوزهای مناسب و اطلاعات ایمنی کشف کنید. شرایط خود را در زیر تایپ کنید تا درمان‌های طبیعی تأیید شده را پیدا کنید.',
 		searchPlaceholder: 'جستجو بر اساس بیماری (مثلاً اضطراب، IBS، تهوع...)',
 		clearSearch: 'پاک کردن جستجو',
