@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a1510"/>
+      <stop offset="50%" style="stop-color:#0c1a14"/>
+      <stop offset="100%" style="stop-color:#0f2018"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6ee7b7"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6ee7b7"/>
+      <stop offset="100%" style="stop-color:#34d399"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative pattern -->
+  <g opacity="0.05">
+    <circle cx="100" cy="100" r="200" fill="none" stroke="#6ee7b7" stroke-width="1"/>
+    <circle cx="1100" cy="530" r="250" fill="none" stroke="#6ee7b7" stroke-width="1"/>
+    <circle cx="1050" cy="80" r="150" fill="none" stroke="#6ee7b7" stroke-width="1"/>
+  </g>
+  
+  <!-- Left decorative leaves -->
+  <g transform="translate(80, 315)" opacity="0.15">
+    <path d="M0 0 Q-60 -80 -40 -150 Q10 -100 0 0" fill="url(#accentGradient)"/>
+    <path d="M0 0 Q-80 -40 -120 -100 Q-30 -60 0 0" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Right decorative leaves -->
+  <g transform="translate(1120, 315)" opacity="0.15">
+    <path d="M0 0 Q60 -80 40 -150 Q-10 -100 0 0" fill="url(#accentGradient)"/>
+    <path d="M0 0 Q80 -40 120 -100 Q30 -60 0 0" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Main content area -->
+  <g transform="translate(600, 280)">
+    <!-- Herb icon -->
+    <g transform="translate(0, -80) scale(2.5)">
+      <!-- Central stem -->
+      <path d="M0 25 Q0 0 0 -25" stroke="url(#accentGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      
+      <!-- Left leaf -->
+      <path d="M-3 10 Q-25 -5 -20 -25 Q-5 -15 -3 5" fill="url(#accentGradient)" opacity="0.9"/>
+      
+      <!-- Right leaf -->
+      <path d="M3 10 Q25 -5 20 -25 Q5 -15 3 5" fill="url(#accentGradient)" opacity="0.9"/>
+      
+      <!-- Small left leaf -->
+      <path d="M-2 -5 Q-18 -15 -15 -30 Q-5 -22 -2 -10" fill="url(#accentGradient)" opacity="0.7"/>
+      
+      <!-- Small right leaf -->
+      <path d="M2 -5 Q18 -15 15 -30 Q5 -22 2 -10" fill="url(#accentGradient)" opacity="0.7"/>
+    </g>
+    
+    <!-- Title -->
+    <text y="80" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="600" fill="#f0fdf4">
+      Yasin Herbal
+    </text>
+    
+    <!-- Subtitle -->
+    <text y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6ee7b7" opacity="0.9">
+      Evidence-Based Herbal Medicine Guide
+    </text>
+    
+    <!-- Tagline -->
+    <text y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#9ca3af">
+      Natural Healing, Backed by Science
+    </text>
+  </g>
+  
+  <!-- Bottom accent line -->
+  <rect x="400" y="580" width="400" height="3" rx="1.5" fill="url(#accentGradient)" opacity="0.6"/>
+  
+  <!-- Corner accents -->
+  <path d="M0 0 L80 0 L80 5 L5 5 L5 80 L0 80 Z" fill="url(#accentGradient)" opacity="0.3"/>
+  <path d="M1200 630 L1120 630 L1120 625 L1195 625 L1195 550 L1200 550 Z" fill="url(#accentGradient)" opacity="0.3"/>
+</svg>
+
