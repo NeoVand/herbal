@@ -551,13 +551,13 @@
 	{/if}
 
 	<!-- About Section -->
-	<section class="relative z-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+	<section class="relative z-10 px-4 sm:px-6 lg:px-8 py-12 sm:py-20" dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}>
 		<div class="max-w-4xl mx-auto">
 			<div class="glass rounded-3xl p-6 sm:p-10">
 				<h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[var(--color-text-primary)] mb-6 text-center">
 					{$t.aboutTitle}
 				</h3>
-				<div class="prose-botanical">
+				<div class="prose-botanical {$currentLang === 'fa' ? 'text-right' : 'text-left'}">
 					<p>
 						{$t.aboutText1}
 					</p>
