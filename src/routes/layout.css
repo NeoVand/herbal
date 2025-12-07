@@ -1,0 +1,298 @@
+@import 'tailwindcss';
+
+:root {
+	/* Deep forest and botanical theme */
+	--color-bg-primary: #0a0f0d;
+	--color-bg-secondary: #111916;
+	--color-bg-tertiary: #1a2420;
+	--color-bg-card: #151e1a;
+	--color-bg-card-hover: #1d2924;
+	
+	/* Botanical accent colors */
+	--color-accent-primary: #4ade80;
+	--color-accent-secondary: #22c55e;
+	--color-accent-muted: #166534;
+	--color-accent-glow: rgba(74, 222, 128, 0.15);
+	
+	/* Warm earth tones */
+	--color-earth-amber: #d97706;
+	--color-earth-copper: #c2410c;
+	--color-earth-sage: #84cc16;
+	
+	/* Text colors */
+	--color-text-primary: #f0fdf4;
+	--color-text-secondary: #bbf7d0;
+	--color-text-muted: #6ee7b7;
+	--color-text-dim: #4ade80;
+	
+	/* Gradients */
+	--gradient-card: linear-gradient(135deg, var(--color-bg-card) 0%, var(--color-bg-tertiary) 100%);
+	--gradient-hero: radial-gradient(ellipse at top, var(--color-bg-secondary) 0%, var(--color-bg-primary) 70%);
+	--gradient-glow: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Outfit', system-ui, sans-serif;
+	background: var(--color-bg-primary);
+	color: var(--color-text-primary);
+	min-height: 100vh;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Elegant serif for headings */
+.font-serif {
+	font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-accent-muted);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--color-accent-secondary);
+}
+
+/* Selection styling */
+::selection {
+	background: var(--color-accent-primary);
+	color: var(--color-bg-primary);
+}
+
+/* Focus styling */
+:focus-visible {
+	outline: 2px solid var(--color-accent-primary);
+	outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes pulse-glow {
+	0%, 100% {
+		box-shadow: 0 0 20px var(--color-accent-glow);
+	}
+	50% {
+		box-shadow: 0 0 40px var(--color-accent-glow), 0 0 60px var(--color-accent-glow);
+	}
+}
+
+@keyframes float {
+	0%, 100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+.animate-fade-in {
+	animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-float {
+	animation: float 6s ease-in-out infinite;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Utility classes for the botanical theme */
+.bg-botanical-gradient {
+	background: var(--gradient-hero);
+}
+
+.bg-card-gradient {
+	background: var(--gradient-card);
+}
+
+.text-gradient {
+	background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-earth-sage) 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.border-botanical {
+	border-color: var(--color-accent-muted);
+}
+
+.glow-botanical {
+	box-shadow: 0 0 30px var(--color-accent-glow);
+}
+
+/* Glass morphism effect */
+.glass {
+	background: rgba(21, 30, 26, 0.7);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(74, 222, 128, 0.1);
+}
+
+/* Herb card hover effects */
+.herb-card {
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.herb-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--color-accent-glow);
+}
+
+/* Image with botanical overlay */
+.herb-image-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.herb-image-container::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to top, var(--color-bg-card) 0%, transparent 50%);
+	pointer-events: none;
+}
+
+/* Search input styling */
+.search-input {
+	background: var(--color-bg-secondary);
+	border: 2px solid var(--color-accent-muted);
+	transition: all 0.3s ease;
+	outline: none !important;
+}
+
+.search-input:focus {
+	border-color: var(--color-accent-primary);
+	box-shadow: 0 0 20px var(--color-accent-glow);
+	outline: none !important;
+}
+
+.search-input:focus-visible {
+	outline: none !important;
+}
+
+.search-input::placeholder {
+	color: var(--color-text-muted);
+	opacity: 0.6;
+}
+
+/* Badge styling */
+.badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.25rem 0.75rem;
+	border-radius: 9999px;
+	font-size: 0.75rem;
+	font-weight: 500;
+	background: var(--color-accent-muted);
+	color: var(--color-text-primary);
+}
+
+.badge-outline {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.375rem 0.875rem;
+	border-radius: 9999px;
+	font-size: 0.75rem;
+	font-weight: 500;
+	background: rgba(74, 124, 89, 0.1);
+	border: 1px solid var(--color-accent-primary);
+	color: var(--color-accent-primary);
+	white-space: nowrap;
+}
+
+/* Section divider */
+.section-divider {
+	height: 1px;
+	background: linear-gradient(90deg, transparent, var(--color-accent-muted), transparent);
+}
+
+/* Prose styling for detailed content */
+.prose-botanical {
+	color: var(--color-text-secondary);
+	line-height: 1.8;
+}
+
+.prose-botanical h1,
+.prose-botanical h2,
+.prose-botanical h3,
+.prose-botanical h4 {
+	color: var(--color-text-primary);
+	font-family: 'Cormorant Garamond', Georgia, serif;
+	font-weight: 600;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.prose-botanical p {
+	margin-bottom: 1rem;
+}
+
+.prose-botanical strong {
+	color: var(--color-accent-primary);
+	font-weight: 600;
+}
+
+.prose-botanical ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.prose-botanical li {
+	position: relative;
+	padding-left: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.prose-botanical li::before {
+	content: '•';
+	position: absolute;
+	left: 0;
+	color: var(--color-accent-primary);
+	font-weight: bold;
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+	html {
+		font-size: 14px;
+	}
+}
