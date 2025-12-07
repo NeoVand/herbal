@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { herbs, diseaseCategories, getHerbsByCategory } from '$lib/data/herbs';
 	import type { HerbInfo } from '$lib/data/herbs';
 	import { currentLang, t } from '$lib/i18n';
@@ -389,14 +390,14 @@
 					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 						{#each searchResults as herb, i (herb.id)}
 							<a
-								href="/herb/{herb.id}"
+								href="{base}/herb/{herb.id}"
 								class="herb-card glass rounded-2xl overflow-hidden animate-fade-in opacity-0"
 								style="animation-delay: {i * 0.1}s"
 								dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}
 							>
 								<div class="herb-image-container h-40 sm:h-48">
 									<img 
-										src={herb.image} 
+										src="{base}{herb.image}" 
 										alt={getHerbName(herb)}
 										class="w-full h-full object-cover"
 										loading="lazy"
@@ -490,14 +491,14 @@
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 					{#each herbs.slice(0, 6) as herb, i (herb.id)}
 						<a
-							href="/herb/{herb.id}"
+							href="{base}/herb/{herb.id}"
 							class="herb-card glass rounded-2xl overflow-hidden animate-fade-in opacity-0"
 							style="animation-delay: {i * 0.1}s"
 							dir={$currentLang === 'fa' ? 'rtl' : 'ltr'}
 						>
 							<div class="herb-image-container h-40 sm:h-48">
 								<img 
-									src={herb.image} 
+									src="{base}{herb.image}" 
 									alt={getHerbName(herb)}
 									class="w-full h-full object-cover"
 									loading="lazy"

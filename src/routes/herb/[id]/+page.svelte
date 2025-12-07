@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { PageData } from './$types';
 	import { currentLang, t } from '$lib/i18n';
 	import { getHerbTranslation } from '$lib/i18n/herbTranslations';
@@ -34,7 +35,7 @@
 	<!-- Header -->
 	<header class="relative z-10 pt-6 pb-4 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-5xl mx-auto flex items-center justify-between">
-			<a href="/" class="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] transition-colors group">
+			<a href="{base}/" class="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] transition-colors group">
 				<svg class="w-5 h-5 {$currentLang === 'fa' ? 'group-hover:translate-x-1 rotate-180' : 'group-hover:-translate-x-1'} transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 				</svg>
@@ -60,7 +61,7 @@
 				<!-- Hero Image -->
 				<div class="relative h-56 sm:h-72 lg:h-80">
 					<img 
-						src={herb.image} 
+						src="{base}{herb.image}" 
 						alt={herbName}
 						class="w-full h-full object-cover"
 					/>
@@ -352,7 +353,7 @@
 	<!-- Footer -->
 	<footer class="relative z-10 px-4 sm:px-6 lg:px-8 py-8 mt-8 border-t border-[var(--color-accent-muted)]/20">
 		<div class="max-w-5xl mx-auto text-center">
-			<a href="/" class="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
+			<a href="{base}/" class="inline-flex items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent-primary)] transition-colors">
 				<svg class="w-4 h-4 {$currentLang === 'fa' ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
 				</svg>
