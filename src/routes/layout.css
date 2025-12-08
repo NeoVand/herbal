@@ -285,6 +285,14 @@ body {
 .prose-botanical li::before {
 	content: '•';
 	position: absolute;
+}
+
+.prose-botanical .references-list li {
+	padding-left: 0;
+}
+
+.prose-botanical .references-list li::before {
+	content: none;
 	left: 0;
 	color: var(--color-accent-primary);
 	font-weight: bold;
